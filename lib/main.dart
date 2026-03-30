@@ -7,6 +7,14 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Text('Hamid Ali = Flutter Dev'));
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Personality Quiz App'),
+          backgroundColor: Colors.lime,
+        ),
+        body: Column(children: [Text('Hamid Ali'), Text('Flutter Dev')]),
+      ),
+    );
   }
 }

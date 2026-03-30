@@ -41,19 +41,23 @@ class _MyAppState extends State<MyApp> {
           title: Text('Personality Quiz App'),
           backgroundColor: Colors.lime,
         ),
-        body: Column(
-          children: [
-            Question(
-              questionText:
-                  _questions[_questionIndex]['questionText'] as String,
-            ),
-            ...(_questions[_questionIndex]['answers'] as List<String>).map((
-              answer,
-            ) {
-              return Answer(title: answer, answerQuestion: _answerQuestion);
-            }),
-          ],
-        ),
+        body: _questionIndex < _questions.length
+            ? Column(
+                children: [
+                  Question(
+                    questionText:
+                        _questions[_questionIndex]['questionText'] as String,
+                  ),
+                  ...(_questions[_questionIndex]['answers'] as List<String>)
+                      .map((answer) {
+                        return Answer(
+                          title: answer,
+                          answerQuestion: _answerQuestion,
+                        );
+                      }),
+                ],
+              )
+            : Text('You did it!'),
       ),
     );
   }

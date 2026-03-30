@@ -12,7 +12,7 @@ class Quiz extends StatelessWidget {
   });
 
   final int questionIndex;
-  final VoidCallback answerQuestion;
+  final Function answerQuestion;
   final List<Map<String, Object>> questions;
 
   @override
@@ -22,9 +22,13 @@ class Quiz extends StatelessWidget {
         Question(
           questionText: questions[questionIndex]['questionText'] as String,
         ),
-        ...(questions[questionIndex]['answers'] as List<String>).map((answer) {
-          return Answer(title: answer, answerQuestion: answerQuestion);
-        }),
+        ...(questions[questionIndex]['answers'] as List<Map<String, Object>>)
+            .map((answer) {
+              return Answer(
+                title: answer['text'] as String,
+                answerQuestion: () => answerQuestion(answer['score']),
+              );
+            }),
       ],
     );
   }

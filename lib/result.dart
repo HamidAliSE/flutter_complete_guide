@@ -26,14 +26,17 @@ class Result extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          resultPrompt,
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        TextButton(onPressed: restartQuiz, child: Text('Restart Quiz!')),
-      ],
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            resultPrompt,
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          TextButton(onPressed: restartQuiz, child: Text('Restart Quiz!')),
+        ],
+      ),
     );
   }
 }

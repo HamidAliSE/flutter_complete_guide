@@ -13,7 +13,15 @@ class MyApp extends StatelessWidget {
           title: Text('Personality Quiz App'),
           backgroundColor: Colors.lime,
         ),
-        body: Column(children: [Text('Hamid Ali'), Text('Flutter Dev')]),
+        body: Column(
+          children: [
+            Text('Question'),
+            ElevatedButton(onPressed: null, child: Text('Answer 1')),
+            ElevatedButton(onPressed: null, child: Text('Answer 2')),
+            ElevatedButton(onPressed: null, child: Text('Answer 3')),
+            ElevatedButton(onPressed: null, child: Text('Answer 4')),
+          ],
+        ),
       ),
     );
   }

@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
 class Result extends StatelessWidget {
-  const Result({super.key, required this.resultScore});
+  const Result({
+    super.key,
+    required this.resultScore,
+    required this.restartQuiz,
+  });
 
   final int resultScore;
+  final VoidCallback restartQuiz;
 
   String get resultPrompt {
     String resultText;
@@ -21,9 +26,14 @@ class Result extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      resultPrompt,
-      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+    return Column(
+      children: [
+        Text(
+          resultPrompt,
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        TextButton(onPressed: restartQuiz, child: Text('Restart Quiz!')),
+      ],
     );
   }
 }
